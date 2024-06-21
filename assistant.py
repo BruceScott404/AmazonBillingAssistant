@@ -1,4 +1,5 @@
 import pandas as pd
+import unidecode
 
 tax_rates = {}
 
@@ -7,17 +8,6 @@ with open("taxrates.txt", "r") as f:
         splitLine = line.split(":")
         tax_rates[splitLine[0]] = int(splitLine[1])
 
-#1) Separate by return / sale
-#2) Separate by tax brackets
-#3) combine same sku sales/returns
-#4) print with the following values:
-    # SKUS
-    # Number ordered
-    # sum of sales
-    # Sum of shipping credits	
-    # Sum of amazon fees
-    # total, (sales + shipping + (sales+shipping *tax)- amazon fees
-#5) add up totals for each tax bracket from the previous step
 # Load the CSV file
 data = pd.read_csv('input/input.csv', header=0)
 
@@ -39,10 +29,10 @@ refund_bracket_15 = []
 for index, row in orders.iterrows():
     bracket = 0
     try:
-        bracket = tax_rates[row['order state'].lower()]
+        bracket = tax_rates[unidecode.unidecode(row['order state']).lower()]
     except:
         try:
-            bracket = tax_rates[row['order city'].lower()]
+            bracket = tax_rates[unidecode.unidecode(row['order city']).lower()]
         except:
             print("ERROR: Province: ", row['order state'], " City: ", row['order city'], " not found")
 
@@ -56,10 +46,10 @@ for index, row in orders.iterrows():
 for index, row in refunds.iterrows():
     bracket = 0
     try:
-        bracket = tax_rates[row['order state'].lower()]
+        bracket = tax_rates[unidecode.unidecode(row['order state']).lower()]
     except:
         try:
-            bracket = tax_rates[row['order city'].lower()]
+            bracket = tax_rates[unidecode.unidecode(row['order city']).lower()]
         except:
             print("ERROR: Province: ", row['order state'], " City: ", row['order city'], " not found")
     if bracket == 13:

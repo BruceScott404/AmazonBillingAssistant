@@ -5,4 +5,7 @@ title "Installer"
 del input\.gitkeep
 del output\.gitkeep
 
-pip3 -u install pandas
+pip3 install pandas
+pip3 install unidecode
+
+pause
