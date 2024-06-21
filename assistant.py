@@ -27,6 +27,7 @@ refund_bracket_15 = []
 
 
 for index, row in orders.iterrows():
+    print(row)
     bracket = 0
     try:
         bracket = tax_rates[unidecode.unidecode(row['order state']).lower()]
@@ -44,6 +45,7 @@ for index, row in orders.iterrows():
         bracket_5.append(row)
 
 for index, row in refunds.iterrows():
+    print(row)
     bracket = 0
     try:
         bracket = tax_rates[unidecode.unidecode(row['order state']).lower()]
@@ -91,3 +93,5 @@ aggregate_data(refund_bracket_5, "output/aggregated_refunds_5.csv")
 aggregate_data(bracket_13, "output/aggregated_sales_13.csv")
 aggregate_data(bracket_15, "output/aggregated_sales_15.csv")
 aggregate_data(bracket_5, "output/aggregated_sales_5.csv")
+
+print("Calculations Completed...")
