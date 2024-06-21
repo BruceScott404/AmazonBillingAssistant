@@ -1,0 +1,31 @@
+alberta:5
+ab:5
+british columbia:5
+bc:5
+manitoba:5
+mb:5
+newfoundland:15
+newfoundland and labrador:15
+nl:15
+new brunswick:15
+nouveau-brunswick:15
+nb:15
+nunavut:5
+nu:5
+northwest territories:5
+nwt:5
+nova scotia:15
+n.s:15
+ns:15
+ontario:13
+on:13
+prince edward island:15
+pei:15
+pe:15
+quebec:5
+québec:5
+qc:5
+saskatchewan:5
+sk:5
+yukon:5
+yu:5
