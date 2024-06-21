@@ -27,7 +27,6 @@ refund_bracket_15 = []
 
 
 for index, row in orders.iterrows():
-    print(row)
     bracket = 0
     try:
         bracket = tax_rates[unidecode.unidecode(row['order state']).lower()]
@@ -45,7 +44,6 @@ for index, row in orders.iterrows():
         bracket_5.append(row)
 
 for index, row in refunds.iterrows():
-    print(row)
     bracket = 0
     try:
         bracket = tax_rates[unidecode.unidecode(row['order state']).lower()]
