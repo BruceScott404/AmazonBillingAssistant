@@ -1,0 +1,3 @@
+Remove heading useless information at top
+Remove anything with different settlement id
+Remove anything that is not an order or return
